@@ -52,10 +52,6 @@ list.innerHTML = projects.map((p, i) => `
       <span>${p.name}</span>
       <span class="meta"><span class="meta-in"><span>${p.role}</span><span>${p.year}</span></span></span>
     </a>
-    <div class="m-detail">
-      <img src="${p.image}" alt="${p.name} screenshot" loading="lazy" width="1600" height="900">
-      <a href="${p.url}" target="_blank" rel="noopener">Visit ${p.name} ↗</a>
-    </div>
   </li>`).join('');
 const items = [...list.children];
 
@@ -84,15 +80,9 @@ list.addEventListener('mouseover', (e) => {
   if (li && !touch.matches) setActive(+li.dataset.i);
 });
 list.addEventListener('mouseleave', () => { if (!touch.matches) setActive(-1); });
-list.addEventListener('focusin', (e) => setActive(+e.target.closest('li').dataset.i));
+// On touch/mobile there is no preview: a tap just opens the project link.
+list.addEventListener('focusin', (e) => { if (!touch.matches) setActive(+e.target.closest('li').dataset.i); });
 list.addEventListener('focusout', (e) => { if (!list.contains(e.relatedTarget)) setActive(-1); });
-// Touch: first tap previews the project, the "Visit" link (or a second tap) opens it.
-list.addEventListener('click', (e) => {
-  const row = e.target.closest('.row');
-  if (!row || !touch.matches) return;
-  const i = +row.parentElement.dataset.i;
-  if (i !== active) { e.preventDefault(); setActive(i); }
-});
 
 /* ---------- Screenshot: mosaic that resolves to full detail ---------- */
 const ctx = shot.getContext('2d');

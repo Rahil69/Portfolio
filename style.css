@@ -142,7 +142,6 @@ a { color: inherit; }
 .meta { height: 1.4em; overflow: hidden; color: rgba(255, 255, 255, .55); text-align: right; }
 .meta-in { display: flex; flex-direction: column; transition: transform .35s var(--slide); }
 .is-active .meta-in { transform: translateY(-50%); }
-.m-detail { display: none; }
 .contact { display: flex; flex-wrap: wrap; gap: 4px 20px; margin-top: 40px; font-size: 15px; }
 .contact a { color: rgba(255, 255, 255, .55); text-decoration: underline; text-underline-offset: .2em; transition: color .35s var(--fade); }
 .contact a:hover, .contact a:focus-visible { color: #fff; }
@@ -161,9 +160,6 @@ a { color: inherit; }
   .has-active .menu-icon { opacity: 1; }
   .panel { width: 100%; padding: 32px var(--pad) var(--pad); overflow-y: auto; }
   .row { min-height: 44px; align-items: center; padding: 0; }
-  .is-active .m-detail { display: block; padding: 8px 0 16px; }
-  .m-detail img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 4px; }
-  .m-detail a { display: inline-flex; align-items: center; min-height: 44px; margin-top: 4px; }
   .contact a { min-height: 44px; display: inline-flex; align-items: center; }
 }
 
