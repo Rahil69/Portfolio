@@ -1,9 +1,7 @@
 // Edit your projects here.
 const projects = [
-  {
-    name: 'Phish', role: 'Design, Dev', year: '2026', url: 'https://phishyness.vercel.app', image: 'assets/images/p1.jpg',
-    desc: "My own spending tracker. I paste in the SMS alerts my bank sends and it works out where my money went each month, in MVR and USD. There's a Telegram bot too, so I can log things straight from my phone.",
-  },
+  { name: 'Phish',         role: 'Design, Dev', year: '2026', url: 'https://phishyness.vercel.app', image: 'assets/images/p1.jpg' },
+  { name: 'Project Two',   role: 'Dev',         year: '2025', url: 'https://example.com', image: 'assets/images/p2.jpg' },
 ];
 
 const $ = (id) => document.getElementById(id);
@@ -11,7 +9,7 @@ const body = document.body;
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const touch = matchMedia('(hover: none), (max-width: 767px)');
 const menuBtn = $('menuBtn'), panel = $('panel'), home = $('home');
-const list = $('works'), pNum = $('pNum'), pTitle = $('pTitle'), pDesc = $('pDesc'), shot = $('pShot');
+const list = $('works'), pNum = $('pNum'), pTitle = $('pTitle'), shot = $('pShot');
 
 /* ---------- Intro ---------- */
 function intro() {
@@ -68,7 +66,6 @@ function setActive(i) {
   const show = () => {
     pNum.textContent = String(i + 1).padStart(2, '0');
     pTitle.textContent = projects[i].name;
-    pDesc.textContent = projects[i].desc || '';
     body.classList.remove('swapping');
     pixelReveal(projects[i]);
   };
