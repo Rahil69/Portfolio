@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Raahil Mu-umin — Designer + Developer</title>
+  <meta name="description" content="Raahil Mu-umin is a designer and developer. Selected works and contact.">
+  <meta name="author" content="Raahil Mu-umin">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Raahil Mu-umin — Designer + Developer">
+  <meta property="og:description" content="Raahil Mu-umin is a designer and developer. Selected works and contact.">
+  <meta property="og:site_name" content="Raahil Mu-umin">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Raahil Mu-umin — Designer + Developer">
+  <meta name="theme-color" content="#FFFFFF">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="frame" id="frame" aria-hidden="true"></div>
+
+  <main class="card" id="card">
+    <section class="home" id="home" aria-label="Intro">
+      <div class="hero">
+        <span class="logo" id="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.8" stroke-linecap="butt" stroke-linejoin="miter" aria-hidden="true">
+            <path d="M7 21V3h5.5a4.5 4.5 0 0 1 0 9"/><path d="M12.5 12 19 21"/><path d="M2 12h20"/>
+          </svg>
+        </span>
+        <h1 class="name"><span class="mask"><span class="w">Raahil</span></span> <span class="mask"><span class="w">Mu-umin</span></span></h1>
+        <p class="title"><span class="mask"><span class="w">Designer</span></span> <span class="mask"><span class="w">+</span></span> <span class="mask"><span class="w">Developer</span></span></p>
+      </div>
+      <p class="status">Currently working at <a href="https://www.adducity.gov.mv/" target="_blank" rel="noopener">Addu City Council</a></p>
+    </section>
+
+    <div class="stage" id="stage" aria-hidden="true">
+      <p class="stage-label"><span class="mask"><span class="w">Selected Works</span></span></p>
+      <span class="p-num" id="pNum"></span>
+      <p class="p-title" id="pTitle"></p>
+      <canvas class="p-shot" id="pShot"></canvas>
+    </div>
+  </main>
+
+  <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="panel">
+    <span class="menu-label" aria-hidden="true"><span class="menu-label-in"><span>Open</span><span>Close</span></span></span>
+    <svg class="menu-icon" viewBox="0 0 24 24" aria-hidden="true">
+      <circle class="dot" cx="12" cy="12" r="6"/>
+      <path class="star" d="M12 2c.9 6.6 3.4 9.1 10 10-6.6.9-9.1 3.4-10 10-.9-6.6-3.4-9.1-10-10 6.6-.9 9.1-3.4 10-10Z"/>
+    </svg>
+  </button>
+
+  <aside class="panel" id="panel" aria-label="Menu" inert>
+    <header class="reveal">
+      <p class="p-name">Raahil Mu-umin</p>
+      <p>Assistant ICT Technician at <a href="https://www.adducity.gov.mv/" target="_blank" rel="noopener">Addu City Council</a></p>
+      <p class="bio">I strive to develop websites with simple, clean designs and smooth, functional micro-interactions.</p>
+    </header>
+    <nav class="works reveal" aria-label="Selected works">
+      <ol id="works"></ol>
+    </nav>
+    <footer class="contact reveal">
+      <a href="mailto:moominraahil@gmail.com">moominraahil@gmail.com</a>
+      <a href="https://github.com/Rahil69" target="_blank" rel="noopener">GitHub</a>
+    </footer>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>
