@@ -99,15 +99,24 @@ function pixelReveal(p) {
   const img = cache[p.image] || (cache[p.image] = Object.assign(new Image(), { src: p.image }));
   const run = () => {
     if (id !== revealId || !img.naturalWidth) return; // superseded, or image missing → keep grey fill
+    // Fit the whole image (no cropping) and pad with its own corner colour so the box looks filled.
+    const k0 = Math.min(w / img.naturalWidth, h / img.naturalHeight);
+    const dw = img.naturalWidth * k0, dh = img.naturalHeight * k0, dx = (w - dw) / 2, dy = (h - dh) / 2;
+    tiny.width = tiny.height = 1;
+    tiny.getContext('2d').drawImage(img, 0, 0, 1, 1, 0, 0, 1, 1);
+    const [r, g, b] = tiny.getContext('2d').getImageData(0, 0, 1, 1).data;
+    const bg = `rgb(${r},${g},${b})`;
     const sizes = reduce ? [1] : [40, 24, 14, 8, 4, 1];
     sizes.forEach((block, k) => setTimeout(() => {
       if (id !== revealId) return;
       ctx.imageSmoothingEnabled = block === 1;
-      if (block === 1) return ctx.drawImage(img, 0, 0, w, h);
-      tiny.width = Math.ceil(w / (block * dpr));
-      tiny.height = Math.ceil(h / (block * dpr));
+      ctx.fillStyle = bg;
+      ctx.fillRect(0, 0, w, h);
+      if (block === 1) return ctx.drawImage(img, dx, dy, dw, dh);
+      tiny.width = Math.ceil(dw / (block * dpr));
+      tiny.height = Math.ceil(dh / (block * dpr));
       tiny.getContext('2d').drawImage(img, 0, 0, tiny.width, tiny.height);
-      ctx.drawImage(tiny, 0, 0, w, h);
+      ctx.drawImage(tiny, dx, dy, dw, dh);
     }, k * 90));
   };
   img.complete ? run() : img.addEventListener('load', run, { once: true });
